@@ -200,11 +200,11 @@ Resources:
                   - s3:GetObject
                   - s3:PutObject
                   - s3:DeleteObject
-                Resource: !Sub '${DataBucket}/*'
+                Resource: !Sub 'arn:aws:s3:::${DataBucket}/*'
               - Effect: Allow
                 Action:
                   - s3:ListBucket
-                Resource: !Ref DataBucket
+                Resource: !Sub 'arn:aws:s3:::${DataBucket}'
         - PolicyName: DynamoDBAccess
           PolicyDocument:
             Version: '2012-10-17'
@@ -416,11 +416,11 @@ Resources:
                   - s3:GetObject
                   - s3:PutObject
                   - s3:DeleteObject
-                Resource: !Sub '${DataBucket}/*'
+                Resource: !Sub 'arn:aws:s3:::${DataBucket}/*'
               - Effect: Allow
                 Action:
                   - s3:ListBucket
-                Resource: !Ref DataBucket
+                Resource: !Sub 'arn:aws:s3:::${DataBucket}'
 
 Outputs:
   VPCId:
